@@ -6,3 +6,4 @@
   sorting, distinct, offset/limit), aggregations, JSON import/export and
   watchers (collection, object and query watchers).
 - Works on every platform (web, VM, Flutter) without IndexedDB or FFI.
+- Verified on Chrome via `dart test -p chrome` (compiled with `dart2js`).

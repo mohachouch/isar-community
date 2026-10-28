@@ -1,3 +1,6 @@
+@TestOn('vm')
+library memory_test;
+
 // ignore_for_file: invalid_use_of_protected_member
 
 import 'package:isar_community/isar.dart';

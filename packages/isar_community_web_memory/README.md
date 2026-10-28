@@ -95,6 +95,27 @@ final isar = openIsarInMemorySync(schemas: [UserSchema]);
 isar.writeTxnSync(() => isar.users.putSync(User(name: 'Bob')));
 ```
 
+## Testing
+
+Run the tests on the Dart VM:
+
+```sh
+dart test -p vm
+```
+
+Run the web suite in Chrome (compiled to JavaScript with `dart2js`):
+
+```sh
+dart test -p chrome
+```
+
+The VM suite (`test/memory_test.dart`) uses Isar's generated schemas, while the
+Chrome suite (`test/web_test.dart`) uses a hand-written, JavaScript-safe schema.
+This split is necessary because Isar's code generator emits 64-bit `xxh3` ids
+that `dart2js` cannot represent exactly — an upstream limitation of the
+generator, not of this package. The in-memory engine itself runs on Chrome
+unchanged.
+
 ## License
 
 See [LICENSE](LICENSE). This package is part of the
