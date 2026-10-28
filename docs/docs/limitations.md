@@ -23,3 +23,14 @@ Because Isar Web relies on IndexedDB, there are more limitations, but they are b
 - `col.delete()` and `col.deleteAll()` work correctly but the return value is not correct
 - `col.clear()` do not reset the auto-increment value
 - `NaN` is not supported as a value
+
+## In-memory alternative for the Web
+
+The default web backend relies on IndexedDB. If you only need **ephemeral,
+non-persistent** storage for the lifetime of the page (for example in tests or
+web prototypes), you can use the separate
+[`isar_community_web_memory`](https://github.com/isar-community/isar-community/tree/main/packages/isar_community_web_memory)
+package instead. It stores all collections in RAM, works without IndexedDB or
+FFI, and supports synchronous methods. Open it explicitly with
+`openIsarInMemory(schemas: [...])`. Note that it does not persist data and does
+not support links.

@@ -1,0 +1,12 @@
+# Test configuration for isar_community_web_memory.
+#
+# - `memory_test.dart` uses generated Isar schemas (64-bit xxh3 ids) and runs on
+#   the VM only; it is tagged `@TestOn('vm')`.
+# - `web_test.dart` uses a hand-written, JS-safe schema and runs in the browser;
+#   it is tagged `@TestOn('browser')`.
+#
+# Run everything on the VM:    dart test -p vm
+# Run the web suite on Chrome: dart test -p chrome
+platforms:
+  - vm
+  - chrome
